@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="ServiceLibrary" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:56902/ServiceApplication.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:56902/ServiceApplication.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:56902/ServiceApplication.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/DBClassLibrary" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IServiceLibrary_GetAllBooks_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllBooks" />
+  </wsdl:message>
+  <wsdl:message name="IServiceLibrary_GetAllBooks_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllBooksResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceLibrary_Details_InputMessage">
+    <wsdl:part name="parameters" element="tns:Details" />
+  </wsdl:message>
+  <wsdl:message name="IServiceLibrary_Details_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceLibrary_AddBook_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddBook" />
+  </wsdl:message>
+  <wsdl:message name="IServiceLibrary_AddBook_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddBookResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceLibrary_UpdateBook_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateBook" />
+  </wsdl:message>
+  <wsdl:message name="IServiceLibrary_UpdateBook_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateBookResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceLibrary_DeleteBook_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteBook" />
+  </wsdl:message>
+  <wsdl:message name="IServiceLibrary_DeleteBook_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteBookResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IServiceLibrary">
+    <wsdl:operation name="GetAllBooks">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceLibrary/GetAllBooks" message="tns:IServiceLibrary_GetAllBooks_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceLibrary/GetAllBooksResponse" message="tns:IServiceLibrary_GetAllBooks_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Details">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceLibrary/Details" message="tns:IServiceLibrary_Details_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceLibrary/DetailsResponse" message="tns:IServiceLibrary_Details_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddBook">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceLibrary/AddBook" message="tns:IServiceLibrary_AddBook_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceLibrary/AddBookResponse" message="tns:IServiceLibrary_AddBook_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateBook">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceLibrary/UpdateBook" message="tns:IServiceLibrary_UpdateBook_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceLibrary/UpdateBookResponse" message="tns:IServiceLibrary_UpdateBook_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteBook">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceLibrary/DeleteBook" message="tns:IServiceLibrary_DeleteBook_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceLibrary/DeleteBookResponse" message="tns:IServiceLibrary_DeleteBook_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IServiceLibrary" type="tns:IServiceLibrary">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetAllBooks">
+      <soap:operation soapAction="http://tempuri.org/IServiceLibrary/GetAllBooks" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Details">
+      <soap:operation soapAction="http://tempuri.org/IServiceLibrary/Details" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddBook">
+      <soap:operation soapAction="http://tempuri.org/IServiceLibrary/AddBook" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateBook">
+      <soap:operation soapAction="http://tempuri.org/IServiceLibrary/UpdateBook" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteBook">
+      <soap:operation soapAction="http://tempuri.org/IServiceLibrary/DeleteBook" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ServiceLibrary">
+    <wsdl:port name="BasicHttpBinding_IServiceLibrary" binding="tns:BasicHttpBinding_IServiceLibrary">
+      <soap:address location="http://localhost:56902/ServiceApplication.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
